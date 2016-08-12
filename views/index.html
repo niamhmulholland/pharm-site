@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Duffy&#39s Pharmacy</title>
+
+    <!-- CSS -->
+    <!-- load bootstrap and our own personal stylesheet -->
+    <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/superhero/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+    <!-- SPELLS -->
+    <!-- load angular and angular route via CDN -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+          <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+      <script src="script.js"></script>
+
+</head>
+<body  ng-controller="mainController">
+
+   <!-- HEADER AND NAVBAR -->
+        <header>
+            <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Angular Routing Example</a>
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                    <li><a href="#about"><i class="fa fa-shield"></i> About</a></li>
+                    <li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
+                </ul>
+            </div>
+            </nav>
+        </header>
+
+        <!-- MAIN CONTENT AND INJECTED VIEWS -->
+        <div id="main">
+             {{ message }}
+            <!-- angular templating -->
+            <!-- this is where content will be injected -->
+              <div ng-view></div>
+
+        </div>
+
+<!--<div class="container">
+   <div class="header">Duffy&#39s Pharmacy</div>
+   <div class="menu">
+        <li>Home</li>
+        <li>Services</li>
+        <li>Contact</li>
+    </div>
+</div>
+
+<div class="footer">created by niamh mulholland copyright &copy 2016</div>-->
+    
+</body>
+</html>
