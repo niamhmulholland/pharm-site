@@ -1,59 +1,198 @@
+<?php
+    if (isset($_POST["submit"])) {
+        $name = $_POST['name'];
+        $email = $_POST['email'];
+        $message = $_POST['message'];
+        $human = intval($_POST['human']);
+        $from = 'Demo Contact Form'; 
+        $to = 'example@domain.com'; 
+        $subject = 'Message from Contact Demo ';
+        
+        $body ="From: $name\n E-Mail: $email\n Message:\n $message";
+        // Check if name has been entered
+        if (!$_POST['name']) {
+            $errName = 'Please enter your name';
+        }
+        
+        // Check if email has been entered and is valid
+        if (!$_POST['email'] || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+            $errEmail = 'Please enter a valid email address';
+        }
+        
+        //Check if message has been entered
+        if (!$_POST['message']) {
+            $errMessage = 'Please enter your message';
+        }
+        //Check if simple anti-bot test is correct
+        if ($human !== 5) {
+            $errHuman = 'Your anti-spam is incorrect';
+        }
+// If there are no errors, send the email
+if (!$errName && !$errEmail && !$errMessage && !$errHuman) {
+    if (mail ($to, $subject, $body, $from)) {
+        $result='<div class="alert alert-success">Thank You! I will be in touch</div>';
+    } else {
+        $result='<div class="alert alert-danger">Sorry there was an error sending your message. Please try again later.</div>';
+    }
+}
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Duffy&#39s Pharmacy</title>
 
     <!-- CSS -->
     <!-- load bootstrap and our own personal stylesheet -->
-    <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/superhero/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
     <link rel="stylesheet" href="css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-
-    <!-- SPELLS -->
-    <!-- load angular and angular route via CDN -->
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
-          <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
-      <script src="script.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
 
 </head>
+
+
+
 <body>
+    <div id="container">
+    <div class="header">Duffy&#39s Pharmacy
+    <div class="sub-head">BUNCRANA</div></div>
 
-   <!-- HEADER AND NAVBAR -->
-        <header>
-            <nav class="navbar navbar-default">
-            <div class="container">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="/">Angular Routing Example</a>
-                </div>
-
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                    <li><a href="#about"><i class="fa fa-shield"></i> About</a></li>
-                    <li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
-                </ul>
-            </div>
-            </nav>
-        </header>
-
-        <!-- MAIN CONTENT AND INJECTED VIEWS -->
-        <div id="main">
-
-            <!-- angular templating -->
-            <!-- this is where content will be injected -->
-
+    <div
+        <div class="about"><p>Lorem ipsum dolor sit amet, te per populo maiorum, cu cibo adipiscing sea, scaevola oporteat prodesset ad mel. Verear malorum nonumes te ius, inermis voluptatum definitionem his et. Ea nonumy inimicus usu, erat docendi eligendi ius cu. Amet omnes altera at sea, usu ullum fuisset conclusionemque ei.</p></div>
+        <div class="contact-info">
+            <div class="info"><p>New Rd. <br> Buncrana <br> Co.Donegal <br><br> <b>Phone:</b> (074)9363646 <br><br> <b>Open hours:</b> <br> Mon - Fri: 9:30am - 6pm <br> Sat: 10am - 6pm </p></div>
+            <div class="hours"></div>
         </div>
+        <div class="photolab-info"><p>Duffy&#39s photolab offers photoshop services, develops photos, prints and creates albums for any occasion. If you have any queries, we&#39d love to hear from you. Fill out the form below and we will get back to you as soon as possible.</p>
+        <div class="col-md-6 col-md-offset-3">
+                <h1 class="page-header text-center">Contact Form Example</h1>
+                <form class="form-horizontal" role="form" method="post" action="index.php">
+                    <div class="form-group">
+                        <label for="name" class="col-sm-2 control-label">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="First & Last Name" value="<?php echo htmlspecialchars($_POST['name']); ?>">
+                            <?php echo "<p class='text-danger'>$errName</p>";?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="col-sm-2 control-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="<?php echo htmlspecialchars($_POST['email']); ?>">
+                            <?php echo "<p class='text-danger'>$errEmail</p>";?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" class="col-sm-2 control-label">Message</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" rows="4" name="message"><?php echo htmlspecialchars($_POST['message']);?></textarea>
+                            <?php echo "<p class='text-danger'>$errMessage</p>";?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="human" class="col-sm-2 control-label">2 + 3 = ?</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="human" name="human" placeholder="Your Answer">
+                            <?php echo "<p class='text-danger'>$errHuman</p>";?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-10 col-sm-offset-2">
+                            <input id="submit" name="submit" type="submit" value="Send" class="btn btn-primary">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-10 col-sm-offset-2">
+                            <?php echo $result; ?>  
+                        </div>
+                    </div>
+                </form> 
+            </div></div>
 
-<!--<div class="container">
-   <div class="header">Duffy&#39s Pharmacy</div>
-   <div class="menu">
-        <li>Home</li>
-        <li>Services</li>
-        <li>Contact</li>
+
+        <div class="service-info"><p>Lorem ipsum dolor sit amet, te per populo maiorum, cu cibo adipiscing sea, scaevola oporteat prodesset ad mel.</p></div>
+
+    <div class="holder"><div class="image"><img src="css/triplespiral.png"></img></div></div>
+
+    <div class="menu">
+        <div class="home"><p>HOME</p></div>
+        <div class="services"><p>SERVICES</p></div>
+        <div class="photolab"><p>PHOTOLAB</p></div>
+        <div class="contact"><p>CONTACT</p></div>
     </div>
+    </div>
+
+<div class="footer">
+    <div class="icon"><a href="www.facebook.com"><img src="css/facebook-icon.png"></img></a></div>
+    <p>created by <a href="www.niamhmulholland.com">niamh mulholland</a> // copyright &copy 2016</p>
 </div>
 
-<div class="footer">created by niamh mulholland copyright &copy 2016</div>-->
-    
 </body>
+
+<script>
+    $(document).ready(function(){
+        $(".contact-info").hide();
+        $(".service-info").hide();
+        $(".photolab-info").hide();
+
+       /*    $(".about").click(function() {
+            $(".holder").addClass("image-animate-2");
+            console.log("did it-2");
+        }); */
+
+       
+   /* document.getElementById("container").addEventListener("wheel", myFunction);
+        function myFunction() {
+            $(".holder").addClass("image-animate");
+            console.log("did it");
+        }; */
+
+    function headerDesign () {
+        $(".header").css("font-size", "16px");
+        $(".sub-head").css("font-size", "13px");
+    }
+
+    $(".home").click(function(){
+        $(".about").show();
+        $(".contact-info").hide();
+        $(".service-info").hide();
+        $(".photolab-info").hide();
+       /* $(".holder").addClass("image-animate-2"); */
+        $(".header").css("font-size", "60px");
+        $(".sub-head").css("font-size", "30px");
+        $(".image").css("opacity", "0.5");
+    });
+     $(".services").click(function(){
+        $(".about").hide();
+        $(".contact-info").hide();
+        $(".service-info").show();
+        $(".photolab-info").hide();
+        $(".image").css("opacity", "0.5");
+        headerDesign();
+    });
+     $(".photolab").click(function(){
+        $(".about").hide();
+        $(".contact-info").hide();
+        $(".photolab-info").show();
+        $(".service-info").hide();
+        headerDesign();
+        $(".image").css("opacity", "0.2");
+    });
+      $(".contact").click(function(){
+        $(".about").hide();
+        $(".contact-info").show();
+        $(".photolab-info").hide();
+        $(".service-info").hide();
+        $(".image").css("opacity", "0.5");
+        headerDesign();
+    });
+});
+</script>
 </html>
