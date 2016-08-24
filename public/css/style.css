@@ -3,7 +3,7 @@ body {
 	height: 100%;
 	width: 100%;
 	font-family: 'Quicksand';
-	background: url(samplephoto5.jpg) no-repeat center center fixed;
+	background: url(samplephoto6.jpg) no-repeat center center fixed;
 	background-size: cover;	background-repeat: no-repeat;*/
 
 }
@@ -51,7 +51,7 @@ body {
 }
 
 .about, .contact-info, .service-info, .photolab-info { 
-
+	color: white;
 	padding: 10px;
 	background: grey;
 	text-align: center;
@@ -63,9 +63,7 @@ body {
 
 .photolab-info {
 	max-width: 70%;
-	max-height: 30%;
 	margin-left: 10%;
-	z-index: 999;
 }
 .holder { 
 	position: fixed;
@@ -85,27 +83,24 @@ body {
 	height: 800px;
 	width: 800px;
 	position: absolute;
-	opacity: 0.2;
-	z-index: 100;
+	opacity: 0.3;
 }
 
-.image-animate {
-	-webkit-animation: image-animate 5s; /* Chrome, Safari, Opera */
+/*.image-animate {
+	-webkit-animation: image-animate 5s; 
     animation: image-animate 5s;
     transform: rotate(120deg);
     transition: all 2s ease 0s;
     transform-origin: 249px 266px 0px;
-
 } 
 
 .image-animate-2 {
-	 -webkit-animation: image-animate-2 5s; /* Chrome, Safari, Opera */
+	 -webkit-animation: image-animate-2 5s; 
     animation: image-animate-2 5s;
     transform: rotate(-120deg);
     transition: all 2s ease 0s;
     transform-origin: 375px 440px 0px;
-
-} 
+} */ 
 
 .footer {
 	width: 100%;
@@ -117,6 +112,7 @@ body {
 	background: grey;
 	opacity: 0.5;
 	text-align: right;
+	color: white;
 }
 
 
