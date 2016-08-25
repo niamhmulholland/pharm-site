@@ -1,6 +1,7 @@
                                
 var express = require('express');
 var app = express();
+var sendgrid = require('sendgrid')(SENDGRID_USERNAME, SENDGRID_PASSWORD);
 
 // set the port of our application                                              
 // process.env.PORT lets the port be set by Heroku                              
@@ -17,11 +18,27 @@ app.get('/', function(req, res) {
 
     // ejs render automatically looks in the views folder                       
     res.render('index');
+
+    //email on page load
+
+    sendgrid.send({
+    	to: 'niamhclairemulholland@gmail.com',
+    	from: 'duffyspharmacypage',
+    	subject: 'test',
+    	text: 'hey i think it works'
+    }, function(errk, json) {
+    	if (err) {return console.error(err); }
+    	console.log(json);
+    });
+   
 });
 
 app.listen(port, function() {
     console.log('Our app is running on http://localhost:' + port);
 });
+
+
+
 
 
 
