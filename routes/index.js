@@ -5,7 +5,7 @@ var sendgrid = require('sendgrid')(process.env.SENDGRID_USERNAME, process.env.SE
 router.get('/', function(req, res) {
 	
 	sendgrid.send({
-      to:       'niamhclairemulholland@gmail.com',
+      to:       process.env.EMAIL,
       from:     'noreply@test.com',
       subject:  'Test',
       text:     'Welcome'
