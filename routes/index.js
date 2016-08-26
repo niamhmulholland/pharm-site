@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var sendgrid = require('sendgrid')(process.env.SENDGRID_USERNAME, process.env.SENDGRID_PASSWORD);
 
-router.post('form-horizontal', function(req, res) {
+router.get('form-horizontal', function(req, res) {
 	
 	sendgrid.send({
       to:       'niamhmulholland@college.harvard.edu',
