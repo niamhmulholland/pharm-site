@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 
 
 app.post('photolab-form', function(request, response){    
-    console.log(request.query.email); 
+    console.log(request.query.message); 
 });
 
 /*router.post('photolab-form', function(req, res) {
