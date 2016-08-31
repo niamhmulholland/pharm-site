@@ -17,6 +17,9 @@ app.post('photolab-form', function(request, response){
     }, function(err, json) {
       if (err) { return console.log('error in form submit');}    
       console.log('form sent');
+      response.statusCode = 302; 
+      response.setHeader("Location", "/login");
+      response.end();
     }); 
 });
 
