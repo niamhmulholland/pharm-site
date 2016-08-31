@@ -4,12 +4,16 @@ var sendgrid = require('sendgrid')(process.env.SENDGRID_USERNAME, process.env.SE
 var bodyParser = require('body-parser');
 
 
-app.post('photolab-form', function(request, response){    
+app.post('photolab-form', function(request, response){  
+
+    var email = request.query.email;
+    var message = request.query.message;
+
     sendgrid.send({
       to:       'niamhmulholland@college.harvard.edu',
-      from:     'noreply@test.com', // email ^^^
+      from:     email,
       subject:  'Test',
-      text:     'Welcome'
+      text:     message
     }, function(err, json) {
       if (err) { return console.log('error in form submit');}    
       console.log('form sent');
