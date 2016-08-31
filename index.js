@@ -5,7 +5,15 @@ var bodyParser = require('body-parser');
 
 
 app.post('photolab-form', function(request, response){    
-    console.log(request.query.message); 
+    sendgrid.send({
+      to:       'niamhmulholland@college.harvard.edu',
+      from:     'noreply@test.com', // email ^^^
+      subject:  'Test',
+      text:     'Welcome'
+    }, function(err, json) {
+      if (err) { return console.log('error in form submit');}    
+      console.log('form sent');
+    }); 
 });
 
 /*router.post('photolab-form', function(req, res) {
