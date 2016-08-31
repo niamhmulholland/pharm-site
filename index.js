@@ -6,14 +6,14 @@ var bodyParser = require('body-parser');
 
 app.post('photolab-form', function(request, response){  
 
-    var email = request.query.email;
-    var message = request.query.message;
+    //var email = request.query.email;
+    //var message = request.query.message;
 
     sendgrid.send({
       to:       'niamhmulholland@college.harvard.edu',
-      from:     email,
+      from:     'email',
       subject:  'Test',
-      text:     message
+      text:     'message'
     }, function(err, json) {
       if (err) { return console.log('error in form submit');}    
       console.log('form sent');
