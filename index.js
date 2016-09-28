@@ -1,10 +1,13 @@
 var express = require('express');
+var app = express();
 var router = express.Router();
 var sendgrid = require('sendgrid')(process.env.SENDGRID_USERNAME, process.env.SENDGRID_PASSWORD);
 var bodyParser = require('body-parser');
 
 
 app.post('photolab-form', function(request, response){  
+
+  console.log('button request');
 
     //var email = request.query.email;
     //var message = request.query.message;
