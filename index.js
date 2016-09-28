@@ -4,7 +4,7 @@ var sendgrid = require('sendgrid')(process.env.SENDGRID_USERNAME, process.env.SE
 var bodyParser = require('body-parser');
 
 
-app.get('photolab-form', function(request, response){  
+app.post('photolab-form', function(request, response){  
 
     //var email = request.query.email;
     //var message = request.query.message;
