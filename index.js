@@ -43,10 +43,10 @@ app.post('photolab-form', function(request, response){
 	//var email = request.query.email;
 	//var message = request.query.message;*/
 
-	
+router.get('/', function(req, res) {	
 	sendgrid.send({
       to:       'niamhmulholland@college.harvard.edu',
-      from:     'noreply@test.com', // email ^^^
+      from:     'noreply@test.com', 
       subject:  'Test',
       text:     'Welcome'
     }, function(err, json) {
