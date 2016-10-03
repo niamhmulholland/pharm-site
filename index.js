@@ -4,6 +4,9 @@ var router = express.Router();
 var sendgrid = require('sendgrid')(process.env.SENDGRID_USERNAME, process.env.SENDGRID_PASSWORD);
 var bodyParser = require('body-parser');
 
+console.log('page load');
+
+/*
 
 app.post('photolab-form', function(request, response){  
 
@@ -24,7 +27,7 @@ app.post('photolab-form', function(request, response){
       //response.setHeader("Location", "/login");
       //response.end();
     }); 
-});
+}); */
 
 /*router.post('photolab-form', function(req, res) {
 
@@ -38,10 +41,10 @@ app.post('photolab-form', function(request, response){
 //alternative 2: make var data and use sendgrid? 
 
 	//var email = request.query.email;
-	//var message = request.query.message;
+	//var message = request.query.message;*/
 
 	
-	/*sendgrid.send({
+	sendgrid.send({
       to:       'niamhmulholland@college.harvard.edu',
       from:     'noreply@test.com', // email ^^^
       subject:  'Test',
@@ -50,6 +53,6 @@ app.post('photolab-form', function(request, response){
       if (err) { return console.log('error in form submit');}    
       console.log('form sent');
     }); 
-}); */
+}); 
 
 module.exports = router;
