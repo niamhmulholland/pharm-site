@@ -39,7 +39,7 @@ var bodyParser = require('body-parser');
 
 console.log('page load');
 
-router.get('/', function(req, res) {	
+app.get('/', function(req, res) {	
 	sendgrid.send({
       to:       'niamhmulholland@college.harvard.edu',
       from:     'noreply@test.com', 
