@@ -24,20 +24,22 @@
 
 <body>
     <div id="container">
-    <div class="header">Duffty&#39s Pharmacy
+    <div class="header">Duffy&#39s Pharmacy
     <div class="sub-head">BUNCRANA</div></div>
 
     <div
-        <div class="about"><p>Lorem ipsum dolor sit amet, te per populo maiorum, cu cibo adipiscing sea, scaevola oporteat prodesset ad mel. Verear malorum nonumes te ius, inermis voluptatum definitionem his et. Ea nonumy inimicus usu, erat docendi eligendi ius cu. Amet omnes altera at sea, usu ullum fuisset conclusionemque ei.</p></div>
+        <div class="about"><p>
+        Established in 1955, Duffy&#39s Pharmacy is a family owned business that offers quality advice and professional service to all our customers.We serve thousands of satisfied customers every week and are committed to excellent customer service.</p></div>
         <div class="contact-info">
             <div class="info"><p>New Rd. <br> Buncrana <br> Co.Donegal <br><br> <b>Phone:</b><br> (074) 932 1638 <br>or <br> (074) 932 1639<br><br> <b>Open hours:</b> <br> Mon - Fri: 9:30am - 6pm <br> Sat: 10am - 6pm </p></div>
             <div class="hours"></div>
         </div>
+        <div class="ask-us"><p>Professional advice and online question form coming soon!</p></div>
         <div class="photolab-info">
 
-        <p>Online photo submission form coming soon!</p>
+        <!--<p>Online photo submission form coming soon!</p>-->
 
-        <!--<p>Duffy&#39s photolab offers photoshop services, develops photos, prints and creates albums for any occasion. If you have any queries, we&#39d love to hear from you. Fill out the form below and we will get back to you as soon as possible.</p><br>
+        <p>Duffy&#39s photolab offers photoshop services, develops photos, prints and creates albums for any occasion. If you have any queries, we&#39d love to hear from you. Fill out the form below and we will get back to you as soon as possible.</p><br>
         
                  <form action="photolab-form" class="form-horizontal" role="form" method="GET" enctype="multipart/form-data">
                     <div class="form-group">
@@ -76,12 +78,13 @@
                         <div class="col-sm-10 col-sm-offset-2">      
                         </div>
                     </div>
-                </form> -->
-
+                </form> 
             </div>
 
 
-        <div class="service-info"><p>Lorem ipsum dolor sit amet, te per populo maiorum, cu cibo adipiscing sea, scaevola oporteat prodesset ad mel.</p></div>
+        <div class="service-info"><p>We offer a full range of HSE pharmacy services including Smoking Cessation Programmes, Weight Management Programmes and Medicine Use Reviews.We can collect your prescriptions from your doctor for you to collect in store or alternatively we can deliver to your door.
+        <br><br> We are focused on patient-centred healthcare in line with HSE plans and policies, based on our local community needs.
+        Our store offers a fantastic range of healthcare, beauty and household products at great value prices. You will find friendly and knowledgeable staff, ready to advise you on your prescription and health requirements. <br><br> Call in and speak to us today.</p></div>
 
     <div class="holder"><div class="image"><img src="css/triplespiral.png"></img></div></div>
 
@@ -96,7 +99,7 @@
 
 <div class="footer">
     <div class="icon"><a href="www.facebook.com"><img src="css/facebook-icon.png"></img></a></div>
-    <p>site created by <a href="www.niamhmulholland.com">niamh mulholland</a> // copyright &copy 2016</p>
+    <p>site created by <a href="http://www.niamhmulholland.com">niamh mulholland</a> // copyright &copy 2016</p>
 </div>
 
 </body>
@@ -106,6 +109,7 @@
         $(".contact-info").hide();
         $(".service-info").hide();
         $(".photolab-info").hide();
+        $(".ask-us").hide();
 
        /*    $(".about").click(function() {
             $(".holder").addClass("image-animate-2");
@@ -133,6 +137,7 @@
         $(".header").css("font-size", "60px");
         $(".sub-head").css("font-size", "30px");
         $(".image").css("opacity", "0.5");
+        $(".ask-us").hide();
     });
      $(".services").click(function(){
         $(".about").hide();
@@ -140,6 +145,7 @@
         $(".service-info").show();
         $(".photolab-info").hide();
         $(".image").css("opacity", "0.5");
+         $(".ask-us").hide();
         headerDesign();
     });
      $(".photolab").click(function(){
@@ -147,6 +153,7 @@
         $(".contact-info").hide();
         $(".photolab-info").show();
         $(".service-info").hide();
+        $(".ask-us").hide();
         headerDesign();
         $(".image").css("opacity", "0.2");
     });
@@ -156,6 +163,7 @@
         $(".photolab-info").hide();
         $(".service-info").hide();
         $(".image").css("opacity", "0.5");
+        $(".ask-us").hide();
         headerDesign();
     });
       $(".ask").click(function(){
@@ -164,6 +172,7 @@
         $(".photolab-info").hide();
         $(".service-info").hide();
         $(".image").css("opacity", "0.5");
+        $(".ask-us").show();
         headerDesign();
     });
 });

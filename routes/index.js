@@ -16,3 +16,25 @@ router.get('form-horizontal', function(req, res) {
 });
 
 module.exports = router;
+
+
+/*var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static('views'));
+
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
+
+app.listen(8000, function () {
+  console.log('Example app listening on port 8000!');
+});
+
+app.post('/signup', function (req, res) {
+  // save user details to your database.
+  res.send('Signed Up!');
+});
+ */
